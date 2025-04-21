@@ -6,7 +6,7 @@ This project is a simple web-based Applicant Tracking System (ATS) that:
 - Computes an ATS score for each section and overall.
 - Displays missing keywords from the resume compared to the job description.
 
----
+
 
 Project Structure
 
