@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ATS Resume Scorer</title>
+</head>
+<body>
+    <h2>Upload Resume & Job Description</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <textarea name="jd_text" rows="10" cols="70" placeholder="Paste Job Description Here"></textarea><br><br>
+        <input type="file" name="resumes" multiple><br><br>
+        <input type="submit" value="Match Resumes">
+    </form>
+    
+    {% if results %}
+        <h3>Results:</h3>
+        {% for r in results %}
+            <div>
+                <h4>{{ r.filename }}</h4>
+                <p><b>Projects Score:</b> {{ r.scores.projects }}%</p>
+                <p><b>Strengths Score:</b> {{ r.scores.strengths }}%</p>
+                <p><b>Education Score:</b> {{ r.scores.education }}%</p>
+                <p><b>Overall ATS Score:</b> {{ r.overall }}%</p>
+                <p><b>Missing Keywords:</b> {{ r.missing_keywords }}</p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
